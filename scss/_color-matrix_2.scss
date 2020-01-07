@@ -1,0 +1,20 @@
+@import './variables2';
+
+$primary: $orange;
+$secondary: $blue;
+$success: $green;
+$danger: $red;
+$warning: $yellow;
+$info: $light-blue;
+$disabled: $dark-grey;
+$tab-primary: $orange;
+$tab-secondary: $orange;
+$text: $grey;
+$light: $white;
+$border-checkboxes: $border-checkbox-default;
+
+$color-array: (bad: $text,
+  good: $danger,
+  very-good: $secondary,
+  excellent: $primary,
+  brilliant: $success);

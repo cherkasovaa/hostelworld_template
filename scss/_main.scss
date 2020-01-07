@@ -1,0 +1,350 @@
+@import "./mixins";
+@import "./variables2";
+@import "./_reset";
+
+.header {
+  background: url(#{$bg-img}) no-repeat center center / cover;
+  color: $light;
+  height: 600px;
+
+  &__title {
+    @include text-style($main-header-size, 500, 0.1px);
+    transform: translateX(-1px);
+    padding-top: 20px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+  }
+
+  &__adress {
+    @include text-style($fifth-header-size, 500, -0.1px);
+    transform: translateX(3px);
+  }
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.menu {
+  padding-top: 30px;
+  margin-bottom: 377px;
+}
+
+.logo {
+  display: inline-block;
+
+  &__text {
+    @include text-style($third-header-size, bold, 0);
+    color: $light;
+  }
+}
+
+.navigation {
+  float: right;
+  text-align: center;
+  line-height: 46px;
+
+  &__item {
+    margin-right: 26px;
+    display: inline-block;
+  }
+
+  &__link {
+    @include text-style($fifth-header-size, 500, 0);
+    position: relative;
+    display: inline-block;
+    color: $light;
+    padding: 0 5px;
+    text-decoration: none;
+    position: relative;
+
+    &:hover::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $light;
+      transform: translate(-5px, 38px);
+    }
+  }
+}
+
+.bread-crumbs {
+  padding-top: 31px;
+  margin-bottom: 94px;
+  @include bread-crumbs($text, $tab-secondary);
+}
+
+.hostelworld-says {
+  color: $text;
+  transform: translateX(-1px);
+  max-width: 65%;
+  margin-bottom: 39px;
+
+  &__title {
+    @include text-style($secondary-header-size, 500, -0.3px);
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    @include text-style($fifth-header-size, 500, -0.1px);
+    line-height: 30px;
+  }
+}
+
+.property-description {
+  color: $text;
+  transform: translateX(-1px);
+  max-width: 65%;
+  margin-bottom: 39px;
+
+  &__title {
+    @include text-style($secondary-header-size, 500, -0.3px);
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    @include text-style($fifth-header-size, 500, -0.1px);
+    line-height: 30px;
+  }
+}
+
+.available-rooms,
+.available-guest-rooms {
+  color: $text;
+  margin-bottom: 49px;
+
+  &__title {
+    @include text-style($secondary-header-size, 500, -0.3px);
+    transform: translateX(-1px);
+    margin-bottom: 30px;
+  }
+}
+
+.available-guest-rooms {
+  margin-bottom: 59px;
+}
+
+.card {
+  @include size(460px, 400px);
+  float: left;
+  margin-right: 20px;
+  border-radius: 8px;
+  background: $light;
+  box-shadow: 0 1px 8px 0 rgba(206, 206, 206, 0.5);
+  color: $text;
+
+  &:hover {
+    box-shadow: 0 1px 20px 0 rgba(78, 78, 78, 0.5);
+  }
+
+  &__content-wrapper {
+    padding: 16px 20px;
+  }
+
+  &__title {
+    @include text-style($fourth-header-size, 500, 0);
+    margin-bottom: 45px;
+  }
+
+  &__price {
+    @include text-style($third-header-size, 700, 0);
+    display: inline-block;
+  }
+
+  &__button {
+    @include button($primary);
+    float: right;
+    transform: translate(-1px, -5px);
+  }
+}
+
+.reviews {
+  color: $text;
+
+  &__content-wrapper {
+    width: 940px;
+  }
+
+  &__title {
+    @include text-style($secondary-header-size, 500, -0.5px);
+    margin-bottom: 31px;
+  }
+}
+
+.rating {
+  color: $text;
+
+  &__title {
+    @include text-style($fourth-header-size, 500, -0.1px);
+    margin-bottom: 28px;
+  }
+
+  &__items {
+    float: left;
+    margin-right: 51px;
+  }
+
+  &__check {
+    display: none;
+  }
+
+  &__value {
+    @include text-style($fourth-header-size, 500, 0);
+    float: right;
+    transform: translateY(3px);
+
+    @each $status,
+    $color in $color-array {
+      &--#{$status} {
+        color: $color;
+      }
+    }
+  }
+
+  &__custom-checkbox {
+    @include custom-checkbox($white-smoke, $border-checkbox-default);
+    position: relative;
+
+    &:hover::after {
+      content: url("../img/check.svg");
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      transform: translate(-50%, -44%);
+      z-index: 5;
+    }
+  }
+
+  &__content {
+    margin-bottom: 37px;
+  }
+}
+
+.review {
+  font-size: $fourth-header-size;
+  color: $text;
+  background: darken($white, 1.57);
+  padding: 31px 30px 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+
+  &--less-margin-bottom {
+    margin-bottom: 13px;
+  }
+
+  &--margin-b-60 {
+    margin-bottom: 60px;
+  }
+
+  &__title-information {
+    margin-bottom: 28px;
+  }
+
+  &__author {
+    @include text-style($fourth-header-size, 700, -0.1px);
+    float: left;
+    margin-right: 31px;
+  }
+
+  &__adress {
+    @include text-style($fourth-header-size, 300, -0.3px);
+    display: inline-block;
+  }
+
+  &__date {
+    float: right;
+  }
+
+  &__content {
+    line-height: 30px;
+    @include text-style($fourth-header-size, 300, -0.1px);
+  }
+}
+
+.tabs {
+  display: inline-block;
+  margin-bottom: 114px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &__counter-box {
+    float: left;
+    @include custom-paginator($text, $light, $tab-primary);
+    position: relative;
+
+    &:first-child>* {
+      background: lighten($text, 49.02);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include text-style(25px, 500, 0);
+    text-decoration: none;
+  }
+
+  &__link-arrow {
+    @include custom-paginator-arrow($text, $light, $primary);
+  }
+}
+
+.footer {
+  padding-top: 53px;
+  padding-bottom: 77px;
+  @include text-style($fourth-header-size, 500, 0);
+  color: $text;
+
+  &__list-info {
+    float: left;
+    width: 220px;
+    margin-right: 140px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__item-title {
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  &__item {
+    margin-bottom: 7px;
+  }
+
+  &__link {
+    font-size: $fifth-header-size;
+    color: $grey;
+    text-decoration: none;
+
+    &:hover {
+      color: $grey;
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: $grey;
+    }
+
+    &:visited {
+      color: $grey;
+    }
+  }
+}
